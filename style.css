@@ -1,0 +1,56 @@
+body { margin:0; font-family:'Noto Sans JP', sans-serif; background:#fafafa; }
+.container { max-width:1100px; margin:auto; padding:0 15px; }
+
+.top-bar { background:#333; color:#fff; font-size:12px; padding:5px; }
+.header { padding:15px 0; }
+.logo { font-size:24px; font-weight:bold; color:#00aaff; }
+
+.nav { background:#00aaff; }
+.nav-list { display:flex; gap:20px; list-style:none; padding:10px 0; }
+.nav-list a { color:#fff; text-decoration:none; font-weight:bold; }
+.menu-toggle { display:none; color:#333; }
+
+.breadcrumb { font-size:12px; margin:10px auto; color:#666; }
+
+.slider img { width:100%; display:none; }
+.slider img.active { display:block; }
+
+.dots { text-align:center; margin-top:5px; }
+.dot { display:inline-block; width:10px; height:10px; background:#ccc; margin:3px; border-radius:50%; cursor:pointer; }
+.dot.active { background:#00aaff; }
+
+.main { display:flex; gap:20px; }
+.content { flex:3; }
+.sidebar { flex:1; }
+
+.section-title { border-left: 5px solid #00aaff; padding-left:10px; }
+
+.news-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:15px; }
+.card { background:#fff; padding:15px; border:1px solid #ddd; border-radius:8px; position:relative; }
+.badge { position:absolute; top:10px; right:10px; background:#00aaff; color:#fff; font-size:10px; padding:3px 6px; }
+.date { font-size:12px; color:#777; }
+
+.activity-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.activity-box { background:#fff; padding:20px; text-align:center; border:1px solid #ddd; }
+
+.contact-form input,
+.contact-form textarea { width:100%; margin-bottom:10px; padding:8px; }
+.contact-form button { background:#00aaff; color:#fff; padding:10px; border:none; }
+
+.side-box { background:#fff; padding:15px; margin-bottom:15px; border:1px solid #ddd; }
+
+.footer { background:#333; color:#fff; padding:20px; margin-top:30px; }
+.footer-grid { display:flex; justify-content:space-between; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width:768px) {
+  .main { flex-direction:column; }
+  .menu-toggle { display:block; }
+  .nav-list { display:none; flex-direction:column; }
+  .nav-list.active { display:flex; }
+  .news-cards { grid-template-columns:1fr; }
+  .activity-grid { grid-template-columns:1fr; }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ホシデン労働組合</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="top-bar">
+        <div class="container">働く人の安心と未来のために</div>
+    </div>
+
+    <header class="header container">
+        <div class="logo">ホシデン労働組合</div>
+    </header>
+
+<nav class="nav">
+  <div class="container">
+    <button class="menu-toggle">☰</button>
+    <ul class="nav-list">
+      <li><a href="#UNION">組合について</a></li>
+      <li><a href="#NEWS">お知らせ</a></li>
+      <li><a href="#INTRO">活動紹介</a></li>
+      <li><a href="#FAQ">お問い合わせ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- パンくず -->
+<div class="breadcrumb container">
+  トップ ＞ お知らせ
+</div>
+
+<!-- スライダー -->
+<div class="slider">
+  <img src="https://via.placeholder.com/1200x400/cc0000/ffffff?text=Union+1" class="slide active">
+  <img src="https://via.placeholder.com/1200x400/999999/ffffff?text=Union+2" class="slide">
+  <img src="https://via.placeholder.com/1200x400/333333/ffffff?text=Union+3" class="slide">
+  <div class="dots"></div>
+</div>
+
+<div class="container main">
+
+  <div class="content">
+
+    <section id="UNION">
+      <h2 class="section-title">組合について</h2>
+      <div calss ="box">
+        <h3>活動理念</h3>
+          <p>ホシデン労働組合は「組合員一人ひとりの幸せに全力を尽くします」の運動理念に基づき、運動ビジョン「私たちの価値を集結し、元気な職場と豊かな暮らしを実現します」を目指し、「のびる」「つくる」「まもる」の3つを基軸として活動を進めていきます。</p>
+        <h3>規約</h3>
+      </div>
+    </section>
+
+    <section id="NEWS">
+      <h2 class="section-title">お知らせ</h2>
+      <div class="news-cards">
+
+        <div class="card">
+          <span class="badge">NEW</span>
+          <p class="date">2026/04/14</p>
+          <h3>春季交渉の集約投票</h3>
+          <p>春季交渉の組合回答に対する開票を行いました。投票ありがとうございました。</p>
+        </div>
+
+        <div class="card">
+          <p class="date">2026/04/06</p>
+          <h3>分会長・GL会議について</h3>
+          <p>大阪支部で分会長会議を開催し、春季交渉の集約に関して報告しました。</p>
+        </div>
+
+        <div class="card">
+          <p class="date">2026/03/19</p>
+          <h3>春季交渉に関する取り組み</h3>
+          <p>春季交渉に関する組合の最終回答を組合員に報告しました。</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="INTRO">
+      <h2 class="section-title">活動紹介</h2>
+      <div class="activity-grid">
+        <div class="activity-box">総労働対策</div>
+        <div class="activity-box">レクリエーション</div>
+        <div class="activity-box">相談窓口</div>
+      </div>
+    </section>
+
+    <section id="FAQ">
+      <h2 class="section-title">お問い合わせ</h2>
+    </section>
+
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="side-box">
+      <h3>組合員のみなさん</h3>
+      <p>組合員向けページはこちらから</p>
+      <input type="text" id="user" placeholder="ID"><br>
+      <input type="password" id="pass" placeholder="パスワード"><br>
+      <button onclick="login()">ログイン</button>
+
+    <script>
+    function login() {
+      const user = document.getElementById("user").value;
+      const pass = document.getElementById("pass").value;
+
+      if(user === "union" && pass === "1234"){
+        window.location.href = "member.html";
+      } else {
+        alert("IDまたはパスワードが違います");
+      }
+    }
+    </script>
+  </div>
+  </aside>
+
+</div>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>ホシデン労働組合</div>
+    <div>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // メニュー
+  const toggle = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('.nav-list');
+
+  if (toggle && navList) {
+    toggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+  }
+
+  // スライダー
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.dots');
+
+  if (!slides.length || !dotsContainer) return;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => showSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    slides[current].classList.remove('active');
+
+    if (dots[current]) {
+      dots[current].classList.remove('active');
+    }
+
+    current = index;
+
+    slides[current].classList.add('active');
+
+    if (dots[current]) {
+      dots[current].classList.add('active');
+    }
+  }
+
+  setInterval(() => {
+    let next = (current + 1) % slides.length;
+    showSlide(next);
+  }, 4000);
+
+});
+</script>
+
+</body>
+</html>
