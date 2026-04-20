@@ -6,15 +6,18 @@ const modal = document.getElementById('loginModal');
 
 openBtn.addEventListener('click', () => {
   modal.style.display = 'flex';
+  openBtn.style.display = 'none';
 });
 
 closeBtn.addEventListener('click', () => {
   modal.style.display = 'none';
+  openBtn.style.display = 'block';
 });
 
 modal.addEventListener('click', (e) => {
   if (e.target === modal) {
     modal.style.display = 'none';
+    openBtn.style.display = 'block';
   }
 });
 
