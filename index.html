@@ -119,7 +119,28 @@
     </script>
   </div>
   </aside>
+ 
+  <!-- モーダルを開くボタン（スマホ用） -->
+  <button class="login-fab" id="openLogin">
+    🔑 組合員ログイン
+  </button>
 
+  <!-- ログインモーダル -->
+  <div class="login-modal" id="loginModal">
+    <div class="login-modal-content">
+      <button class="close-btn" id="closeLogin">×</button>
+
+      <h3>組合員ログイン</h3>
+      <p class="login-desc">組合員専用ページはこちら</p>
+
+      <input type="text" id="modal-user" placeholder="ID">
+      <input type="password" id="modal-pass" placeholder="パスワード">
+
+      <button class="login-btn" id="modalLoginBtn">
+        ログイン
+      </button>
+    </div>
+  </div> 
 </div>
 
 <footer class="footer">
