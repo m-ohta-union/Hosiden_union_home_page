@@ -1,25 +1,39 @@
 <script>
-/* ===== モーダル操作 ===== */
+
 const openBtn = document.getElementById('openLogin');
-const closeBtn = document.getElementById('closeLogin');
 const modal = document.getElementById('loginModal');
+const closeBtn = document.getElementById('closeLogin');
+
+const userInput = document.getElementById('modal-user');
 
 openBtn.addEventListener('click', () => {
   modal.style.display = 'flex';
   openBtn.style.display = 'none';
+
+  // ✅ bodyスクロールを止める
+  document.body.style.overflow = 'hidden';
+
+  // ✅ 少し遅らせてフォーカス（スマホ必須）
+  setTimeout(() => {
+    userInput.focus();
+  }, 100);
 });
 
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-  openBtn.style.display = 'block';
-});
+closeBtn.addEventListener('click', closeModal);
 
 modal.addEventListener('click', (e) => {
   if (e.target === modal) {
-    modal.style.display = 'none';
-    openBtn.style.display = 'block';
+    closeModal();
   }
 });
+
+function closeModal() {
+  modal.style.display = 'none';
+  openBtn.style.display = 'block';
+
+  // ✅ 元に戻す
+  document.body.style.overflow = '';
+}
 
 /* ===== ログイン処理 ===== */
 document.getElementById('modalLoginBtn').addEventListener('click', () => {
