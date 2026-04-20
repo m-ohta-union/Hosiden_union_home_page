@@ -139,3 +139,12 @@ html {
     z-index: 1500;
   }
 }
+
+/* モーダル操作を最優先にする */
+.login-modal {
+  pointer-events: auto;
+}
+
+.login-modal * {
+  pointer-events: auto;
+}
