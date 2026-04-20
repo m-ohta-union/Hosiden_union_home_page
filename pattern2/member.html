@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>労働組合サイトテンプレート</title>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="top-bar">
+        <div class="container">いつもおつかれさまです</div>
+    </div>
+
+    <header class="header container">
+        <div class="logo">組合員専用ページ</div>
+    </header>
+
+<nav class="nav">
+  <div class="container">
+    <button class="menu-toggle">☰</button>
+    <ul class="nav-list">
+      <li><a href="#NEWS">本部・支部からのお知らせ</a></li>
+      <li><a href="#MAGAZINE">機関紙・広報誌</a></li>
+      <li><a href="#NEGO">団体交渉・労使協議情報</a></li>
+      <li><a href="#BENEFIT">福利厚生・共催の案内</a></li>
+      <li><a href="#FAQ">お問い合わせ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- パンくず -->
+<div class="breadcrumb container">
+  トップ ＞ お知らせ
+</div>
+
+<!-- スライダー -->
+<div class="slider">
+  <img src="https://via.placeholder.com/1200x400/cc0000/ffffff?text=Union+1" class="slide active">
+  <img src="https://via.placeholder.com/1200x400/999999/ffffff?text=Union+2" class="slide">
+  <img src="https://via.placeholder.com/1200x400/333333/ffffff?text=Union+3" class="slide">
+  <div class="dots"></div>
+</div>
+
+<div class="container main">
+
+  <div class="content">
+
+    <section id ="NEWS">
+      <h2 class="section-title">本部・支部からのお知らせ</h2>
+        <p>*ここに定期大会などの報告を記載する</p>
+    </section>
+
+    <section id="MAGAZINE">
+      <h2 class="section-title">機関紙・広報誌</h2>
+        <p>*ここにハローなどの機関紙の配布を報告する</p>
+        <div class="news-cards">
+          <div class="card">
+            <span class="badge">NEW</span>
+            <p class="date">2025/07/31</p>
+            <h3>テーマ別活動</h3>
+            <p>
+                <a href="gender_leaflet_vol01.pdf">
+                  ジェンダーに関するビラを発行しました。
+                </a>  
+            </p>
+          </div>
+        </div>
+    </section>
+
+    <section id="NEGO">
+      <h2 class="section-title">団体交渉・労使協議情報</h2>
+        <p>*ここに春季交渉の経過、結果について記載する</p>
+    </section>
+
+    <section id="BENEFIT">
+      <h2 class="section-title">福利厚生・共催の案内</h2>
+        <p>*ここに共催、共済会の情報を記載する</p>
+    </section>
+
+    <section id="FAQ">
+      <h2 class="section-title">お問い合わせ</h2>            
+        <a href="https://forms.office.com/r/FG3xEL9fsJ" target="_blank">
+          組合活動や職場についてのご相談はこちらから
+        </a>
+
+
+    </section>
+
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="side-box">
+      <ul>
+    <button type="button" onclick="location.href='index.html'">
+      ログアウト
+    </button>
+      </ul>
+    </div>
+
+  </aside>
+
+</div>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>ホシデン労働組合</div>
+    <div>
+      <a href="#">プライバシーポリシー</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // メニュー
+  const toggle = document.querySelector('.menu-toggle');
+  const navList = document.querySelector('.nav-list');
+
+  if (toggle && navList) {
+    toggle.addEventListener('click', () => {
+      navList.classList.toggle('active');
+    });
+  }
+
+  // スライダー
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.querySelector('.dots');
+
+  if (!slides.length || !dotsContainer) return;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => showSlide(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    slides[current].classList.remove('active');
+
+    if (dots[current]) {
+      dots[current].classList.remove('active');
+    }
+
+    current = index;
+
+    slides[current].classList.add('active');
+
+    if (dots[current]) {
+      dots[current].classList.add('active');
+    }
+  }
+
+  setInterval(() => {
+    let next = (current + 1) % slides.length;
+    showSlide(next);
+  }, 4000);
+
+});
+</script>
+
+</body>
+</html>
