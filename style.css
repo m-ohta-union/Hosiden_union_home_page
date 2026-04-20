@@ -46,6 +46,15 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (max-width:768px) {
+  .main { flex-direction:column; }
+  .sidebar {order: -1; margin-bottom: 20px;}
+  .menu-toggle { display:block; }
+  .nav-list { display:none; flex-direction:column; }
+  .nav-list.active { display:flex; }
+  .news-cards { grid-template-columns:1fr; }
+  .activity-grid { grid-template-columns:1fr; }
+}
 
 /* ===== モーダル背景 ===== */
 .login-modal {
@@ -128,14 +137,4 @@ html {
     font-weight: bold;
     z-index: 1500;
   }
-}
-
-
-@media (max-width:768px) {
-  .main { flex-direction:column; }
-  .menu-toggle { display:block; }
-  .nav-list { display:none; flex-direction:column; }
-  .nav-list.active { display:flex; }
-  .news-cards { grid-template-columns:1fr; }
-  .activity-grid { grid-template-columns:1fr; }
 }
