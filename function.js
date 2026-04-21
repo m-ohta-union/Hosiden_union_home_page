@@ -1,5 +1,3 @@
-<script>
-
 const openBtn = document.getElementById('openLogin');
 const modal = document.getElementById('loginModal');
 const closeBtn = document.getElementById('closeLogin');
@@ -46,4 +44,3 @@ document.getElementById('modalLoginBtn').addEventListener('click', () => {
     alert("IDまたはパスワードが違います");
   }
 });
-</script>

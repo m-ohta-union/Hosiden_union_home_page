@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>労働組合サイトテンプレート</title>
+        <title>組合員専用ページ</title>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style_member.css">
     </head>
 
     <body>
         <div class="top-bar">
-        <div class="container">いつもおつかれさまです</div>
+        <div class="container">マスコットキャラ・・・だと？</div>
     </div>
 
     <header class="header container">
@@ -31,11 +31,14 @@
 </nav>
 
 <!-- パンくず -->
+<!--
 <div class="breadcrumb container">
   トップ ＞ お知らせ
 </div>
+--> 
 
 <!-- スライダー -->
+<p>/*I plan to display three images in this position*/</p>
 <div class="slider">
   <img src="https://via.placeholder.com/1200x400/cc0000/ffffff?text=Union+1" class="slide active">
   <img src="https://via.placeholder.com/1200x400/999999/ffffff?text=Union+2" class="slide">
@@ -43,65 +46,66 @@
   <div class="dots"></div>
 </div>
 
-<div class="container main">
+<!--Logout-->
+<div class="louout-area sp-only">
+  <button class="logout-btn" onclick="location.href='index.html'">ログアウト</button>
+</div>
 
-  <div class="content">
+<div class="container"> 
+  <div class="main">
+    <div class="content">
+      <section id ="NEWS">
+        <h2 class="section-title">本部・支部からのお知らせ</h2>
+          <!--ここに定期大会などの報告を記載する-->
+      </section>
+      
+      <section id="MAGAZINE">
+        <h2 class="section-title">機関紙・広報誌</h2>
+          <!--ここにハローなどの機関紙の配布を報告する-->
+          <div class="news-cards">
 
-    <section id ="NEWS">
-      <h2 class="section-title">本部・支部からのお知らせ</h2>
-        <p>*ここに定期大会などの報告を記載する</p>
-    </section>
+            <div class="card">
+              <span class="badge">NEW</span>
+              <p class="date">2026/02/16</p>
+              <h3>テーマ別活動</h3>
+              <p><a href="gender_leaflet_vol02.pdf">ジェンダーに関するビラを発行しました。</a></p>
+            </div>
+          
+            <div class="card">
+              <p class="date">2025/07/31</p>
+              <h3>テーマ別活動</h3>
+              <p><a href="gender_leaflet_vol01.pdf">ジェンダーに関するビラを発行しました。</a></p>
+            </div>
 
-    <section id="MAGAZINE">
-      <h2 class="section-title">機関紙・広報誌</h2>
-        <p>*ここにハローなどの機関紙の配布を報告する</p>
-        <div class="news-cards">
-          <div class="card">
-            <span class="badge">NEW</span>
-            <p class="date">2025/07/31</p>
-            <h3>テーマ別活動</h3>
-            <p>
-                <a href="gender_leaflet_vol01.pdf">
-                  ジェンダーに関するビラを発行しました。
-                </a>  
-            </p>
           </div>
-        </div>
-    </section>
+      </section>
 
-    <section id="NEGO">
-      <h2 class="section-title">団体交渉・労使協議情報</h2>
-        <p>*ここに春季交渉の経過、結果について記載する</p>
-    </section>
-
-    <section id="BENEFIT">
-      <h2 class="section-title">福利厚生・共催の案内</h2>
-        <p>*ここに共催、共済会の情報を記載する</p>
-    </section>
-
-    <section id="FAQ">
-      <h2 class="section-title">お問い合わせ</h2>            
-        <a href="https://forms.office.com/r/FG3xEL9fsJ" target="_blank">
-          組合活動や職場についてのご相談はこちらから
-        </a>
-
-
-    </section>
-
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="side-box">
-      <ul>
-    <button type="button" onclick="location.href='index.html'">
-      ログアウト
-    </button>
-      </ul>
+      <section id="NEGO">
+        <h2 class="section-title">団体交渉・労使協議情報</h2>
+          <!--ここに春季交渉の経過、結果について記載する-->
+          <div class="card">
+            <p class="date">2026/04/16</p>
+              <h3>2026春季交渉</h3>
+                <p><a href="">最終集約交渉を開催し、正式に集約を表明しました。</a></p>
+          </div>
+      </section>
+      <section id="BENEFIT">
+        <h2 class="section-title">福利厚生・共催の案内</h2>
+          <!--ここに共催、共済会の情報を記載する-->
+      </section>
+      <section id="FAQ">
+        <h2 class="section-title">お問い合わせ</h2>            
+          <a href="https://forms.office.com/r/FG3xEL9fsJ" target="_blank">
+            組合活動や職場についてのご相談はこちらから
+          </a>
+      </section>
     </div>
-
-  </aside>
-
+    <aside class="sidebar pc-only">
+      <div class="side-box">
+        <button class="logout-btn" onclick="location.href='index.html'">ログアウト</button>
+      </div>
+    </aside>
+  </div>
 </div>
 
 <footer class="footer">
@@ -115,7 +119,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-
   // メニュー
   const toggle = document.querySelector('.menu-toggle');
   const navList = document.querySelector('.nav-list');
@@ -166,6 +169,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 </script>
-
 </body>
 </html>
