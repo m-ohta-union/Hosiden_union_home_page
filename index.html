@@ -8,20 +8,29 @@
         <link rel="stylesheet" href="style_index.css">
     </head>
 
-    <body>
-        <div class="top-bar">
-        <div class="container">働く人の安心と未来のために</div>
-    </div>
-
     <header class="header container">
         <div class="logo">ホシデン労働組合</div>
+
+        <button class="menu-toggle">
+          <span class="icon">☰</span>
+          <span class="text">メニュー</span>
+        </button>
     </header>
 
 <nav class="nav">
   <div class="container">
-    <button class="menu-toggle">☰</button>
     <ul class="nav-list">
-      <li><a href="#UNION">組合について</a></li>
+      <li class ="has-submenu">
+        <a href="javascript:void(0);" class="submenu-toggle">
+          ホシデン労組とは
+        </a>
+        <ul class="submenu">
+          <li><a href="#UNION">ホシデン労組とは</a></li>
+          <li><a href="#UNION">基本理念・規約など</a></li>
+          <li><a href="#UNION">活動紹介</a></li>
+          <li><a href="#UNION">組織構成・本部アクセス</a></li>
+        </ul>  
+      </li>
       <li><a href="#NEWS">お知らせ</a></li>
       <li><a href="#INTRO">活動紹介</a></li>
       <li><a href="#FAQ">お問い合わせ</a></li>
@@ -49,7 +58,7 @@
   <div class="content">
 
     <section id="UNION">
-      <h2 class="section-title">組合について</h2>
+      <h2 class="section-title">ホシデン労組とは</h2>
       <div calss ="box">
         <h3>活動理念</h3>
           <p>ホシデン労働組合は「組合員一人ひとりの幸せに全力を尽くします」の運動理念に基づき、運動ビジョン「私たちの価値を集結し、元気な職場と豊かな暮らしを実現します」を目指し、「のびる」「つくる」「まもる」の3つを基軸として活動を進めていきます。</p>
@@ -159,17 +168,29 @@
 </footer>
 
 <script>
-src="function.js";
+/*src="function.js";*/
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // メニュー
   const toggle = document.querySelector('.menu-toggle');
   const navList = document.querySelector('.nav-list');
+  const icon = document.querySelector('.menu-toggle .icon');
 
-  if (toggle && navList) {
+  if (toggle && navList && icon) {
     toggle.addEventListener('click', () => {
       navList.classList.toggle('active');
+
+      if(navList.classList.contains('active'))
+      {
+        icon.textContent = '×';
+        icon.style.transform = 'rotate(180deg)';
+      }
+      else
+      {
+        icon.textContent = '☰';
+        icon.style.transform = 'rotate(0deg)';
+      }
     });
   }
 
@@ -210,6 +231,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let next = (current + 1) % slides.length;
     showSlide(next);
   }, 4000);
+
+// サブメニュー
+const submenuToggle = document.querySelector('.submenu-toggle');
+const submenu = document.querySelector('.submenu');
+
+  submenuToggle.addEventListener('click', () => {
+    submenu.classList.toggle('active');
+  });
 
 });
 </script>
