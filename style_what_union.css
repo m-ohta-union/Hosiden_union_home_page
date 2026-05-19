@@ -134,7 +134,28 @@ body { margin:0; font-family:'Noto Sans JP', sans-serif; background:#fafafa; }
   transition: 0.2s;
 }
 
+.subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
 
+.sub_text {
+  font-size: 20px;
+  border-bottom: 3px solid #00aaff; /* 下線 */
+  margin-right: 20px; /* 画像との間隔 */
+}
+
+.sub_image {
+  width: 50px;
+  height: auto;
+}
+
+.sub_image img {
+  height: 50px;   /* ←好きなサイズに変更 */
+  width: auto;
+}
 
 .badge { position:absolute; top:10px; right:10px; background:#00aaff; color:#fff; font-size:10px; padding:3px 6px; }
 .date { font-size:12px; color:#777; }
